@@ -34,7 +34,6 @@ public:
     void setTrackPoint(cv::Mat &frame, Point point);
     cv::Size getImageSize();
     bool isInitialized();
-    void stopTracking();
 
 private:
     TrackingModuleSanityCheck sanityCheck;

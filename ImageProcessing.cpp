@@ -18,7 +18,6 @@
 #include <QObject>
 #if defined(Q_OS_LINUX) || defined(Q_OS_WIN32)
 #include <opencv2/imgproc.hpp>
-
 #endif
 
 #include "ImageProcessing.h"
@@ -28,12 +27,6 @@ namespace CMS {
 void ImageProcessing::drawGreenRectangle(cv::Mat &image, cv::Rect &rectangle)
 {
     cv::rectangle(image, rectangle, cv::Scalar(50, 205, 50), 2);
-}
-
-void ImageProcessing::drawText(cv::Mat &image, std::string str, int x, int y){
-
-    cv::putText(image,str,cv::Point(x,y),cv::FONT_HERSHEY_DUPLEX,1,cv::Scalar(0,255,0),2,false);
-
 }
 
 } // namespace CMS

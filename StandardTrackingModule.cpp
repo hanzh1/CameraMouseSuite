@@ -91,9 +91,4 @@ bool StandardTrackingModule::isInitialized()
     return initialized;
 }
 
-void StandardTrackingModule::stopTracking()
-{
-    initialized = false;
-}
-
 } // namespace CMS

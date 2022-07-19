@@ -20,10 +20,6 @@ QT       += core gui multimedia multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-INCLUDEPATH += C:\opencv-build\install\include
-LIBS += -LC:\opencv-build\bin -lopencv_core343 -lopencv_highgui343 -lopencv_imgcodecs343 -lopencv_imgproc343 -lopencv_features2d343 -lopencv_calib3d343
-LIBS += -LC:\opencv-build\bin\ -llibopencv_objdetect343 -lopencv_video343
-
 TARGET = CameraMouseSuite
 TEMPLATE = app
 
@@ -51,22 +47,22 @@ mac {
     OBJECTIVE_SOURCES += MacKeyboard.mm
 }
 
-#win32 {
-#    INCLUDEPATH += $$(OPENCV_INCLUDE) \
-#                   $$(OPENCV_INCLUDE)/opencv
-#    CONFIG(debug, debug|release) {
-#        LIBS += $$(OPENCV_DIR)/lib/*d.lib
-#        message(Debug configuration!)
-#    }
-#    CONFIG(release, debug|release) {
-#        LIBS += -L$$(OPENCV_DIR)/lib/ \
-#                -lopencv_core2411 \
-#                -lopencv_imgproc2411 \
-#                -lopencv_objdetect2411 \
-#                -lopencv_video2411
-#        message(Release configuration!)
-#    }
-#}
+win32 {
+    INCLUDEPATH += $$(OPENCV_INCLUDE) \
+                   $$(OPENCV_INCLUDE)/opencv
+    CONFIG(debug, debug|release) {
+        LIBS += $$(OPENCV_DIR)/lib/*d.lib
+        message(Debug configuration!)
+    }
+    CONFIG(release, debug|release) {
+        LIBS += -L$$(OPENCV_DIR)/lib/ \
+                -lopencv_core2411 \
+                -lopencv_imgproc2411 \
+                -lopencv_objdetect2411 \
+                -lopencv_video2411
+        message(Release configuration!)
+    }
+}
 
 SOURCES += *.cpp
 

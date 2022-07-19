@@ -98,12 +98,10 @@ void TemplateTrackingModule::setTrackPoint(cv::Mat &frame, Point point)
 void TemplateTrackingModule::drawOnFrame(cv::Mat &frame, Point point)
 {
 #ifdef DEBUGING
-    float ratio = 0.03;
-    int width = (int) (frame.size().width * ratio);
-    int height = (int) (frame.size().height * ratio);
+    int width = fullTemplateSize.width;
+    int height = fullTemplateSize.height;
     cv::Rect rectangle(point.X() - width / 2, point.Y() - height / 2, width, height);
     ImageProcessing::drawGreenRectangle(frame, rectangle);
-    ImageProcessing::drawText(frame, "Hello????", width / 2, height / 2);
 #else
     ITrackingModule::drawOnFrame(frame, point);
 #endif
@@ -191,11 +189,6 @@ cv::Point TemplateTrackingModule::match(cv::Mat &frame, cv::Mat &tmpl, cv::Size 
         matchLoc = maxLoc;
     }
     return adjustPoint(matchLoc + cv::Point(offX, offY), limits);
-}
-
-void TemplateTrackingModule::stopTracking()
-{
-    initialized = false;
 }
 
 } // namespace CMS
