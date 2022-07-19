@@ -18,7 +18,8 @@
 #ifndef CMS_IMAGEPROCESSING_H
 #define CMS_IMAGEPROCESSING_H
 
-#include <cv.h>
+#include <opencv/cv.h>
+#include <Point.h>
 
 namespace CMS {
 
@@ -26,6 +27,7 @@ class ImageProcessing
 {
 public:
     static void drawGreenRectangle(cv::Mat &image, cv::Rect &rectangle);
+    static void drawText(cv::Mat &image, std::string str, int x, int y);
 };
 
 } // namespace CMS
