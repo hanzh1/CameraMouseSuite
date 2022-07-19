@@ -21,9 +21,10 @@
 #include <QObject>
 #if defined(Q_OS_LINUX) || defined(Q_OS_WIN32)
 #include <opencv2/opencv.hpp>
+#include <opencv2/objdetect.hpp>
 #endif
 
-#include <cv.h>
+#include <opencv/cv.h>
 #include <vector>
 
 #include "Point.h"

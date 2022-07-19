@@ -18,9 +18,9 @@
 #ifndef CMS_CAMERAMOUSECONTROLLER_H
 #define CMS_CAMERAMOUSECONTROLLER_H
 
-#include <cv.h>
+#include <opencv/cv.h>
 #include <QTime>
-
+#include <QTimer>
 #include "FeatureInitializationModule.h"
 #include "TrackingModule.h"
 #include "MouseControlModule.h"
@@ -29,14 +29,22 @@
 
 namespace CMS {
 
-class CameraMouseController
+class CameraMouseController: public QObject
 {
+    Q_OBJECT
+
 public:
     CameraMouseController(Settings &settings, ITrackingModule *trackingModule, MouseControlModule *controlModule);
     ~CameraMouseController();
     void processFrame(cv::Mat &frame);
     void processClick(Point position);
     bool isAutoDetectWorking();
+    void five_secs_reset();
+
+public slots:
+    void slot_processClick();
+    void slot_countdown();
+
 
 private:
     Settings &settings;
@@ -45,6 +53,7 @@ private:
     MouseControlModule *controlModule;
     cv::Mat prevFrame;
     QTime featureCheckTimer;
+    QTime countdown = QTime(0,0,5);
 };
 
 } // namespace CMS
