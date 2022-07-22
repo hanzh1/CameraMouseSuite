@@ -59,7 +59,7 @@ void CameraMouseController::processFrame(cv::Mat &frame)
             //harding coding the range of frame for now.
             if (featurePosition.X() >= 600 || featurePosition.X() <= 45 || featurePosition.Y() <= 45 || featurePosition.Y() >= 430){
                 qDebug("feature out of frame");
-                if (1)/*change to 5-4-3-2-1 settings bool*/{
+                if (settings.isFiveSecOnLoss())/*change to 5-4-3-2-1 settings bool*/{
                     five_secs_reset();
                 }
             }

@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowTitle(tr("CameraMouseSuite"));
     setupCameraWidgets();
     setupSettingsWidgets();
-    sp = new settingpage(this);
+    sp = new settingpage(settings, this);
 
 }
 
