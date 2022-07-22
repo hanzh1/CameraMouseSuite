@@ -23,6 +23,7 @@
 #include <QAbstractVideoSurface>
 
 #include "Settings.h"
+#include "settingpage.h"
 
 namespace Ui {
 class MainWindow;
@@ -48,11 +49,14 @@ private slots:
     void verticalGainChanged(int verticalGain);
     void lockGainClicked(bool lock);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QCamera *camera;
     QAbstractVideoSurface *videoManagerSurface;
     Settings settings;
+    settingpage *sp;
 
     void setupCameraWidgets();
     void setupSettingsWidgets();

@@ -40,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowTitle(tr("CameraMouseSuite"));
     setupCameraWidgets();
     setupSettingsWidgets();
+    sp = new settingpage(this);
 
 }
 
@@ -172,6 +173,12 @@ void MainWindow::lockGainClicked(bool lock)
 {
     if (lock)
         ui->verticalGainSlider->setValue(ui->horizontalGainSlider->value());
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    sp->show();
 }
 
 } // namespace CMS

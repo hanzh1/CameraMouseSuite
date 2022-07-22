@@ -70,9 +70,12 @@ mac {
 
 SOURCES += *.cpp
 
-HEADERS  += *.h
 
-FORMS    += mainWindow.ui
+HEADERS  += *.h \
+    settingpage.h
+
+FORMS    += mainWindow.ui \
+    settingpage.ui
 
 OTHER_FILES += \
     README.md \

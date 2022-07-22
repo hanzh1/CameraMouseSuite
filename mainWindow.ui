@@ -24,7 +24,7 @@
        </size>
       </property>
       <property name="title">
-       <string>Settings</string>
+       <string>Mouse Control</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
@@ -296,6 +296,13 @@
         <widget class="QCheckBox" name="autoDetectNoseCheckBox">
          <property name="text">
           <string>Auto Detect Nose</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>Settings</string>
          </property>
         </widget>
        </item>
