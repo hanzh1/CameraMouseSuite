@@ -53,7 +53,7 @@ private:
     MouseControlModule *controlModule;
     cv::Mat prevFrame;
     QTime featureCheckTimer;
-    QTime countdown = QTime(0,0,5);
+    QTime countdown;
 };
 
 } // namespace CMS

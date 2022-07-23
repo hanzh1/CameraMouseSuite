@@ -25,6 +25,18 @@ void settingpage::setupSettings(){
 }
 
 
+void settingpage::on_buttonBox_accepted()
+{
+  accept();
+}
+
+
+void settingpage::on_buttonBox_rejected()
+{
+  close();
+}
+
+
 //void settingpage::on_fiveSecOnLoss_toggled(bool checked)
 //{
 //  connect(ui->fiveSecOnLoss, SIGNAL(toggled(bool)) )

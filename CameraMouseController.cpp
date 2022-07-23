@@ -58,7 +58,6 @@ void CameraMouseController::processFrame(cv::Mat &frame)
 
             //harding coding the range of frame for now.
             if (featurePosition.X() >= 600 || featurePosition.X() <= 45 || featurePosition.Y() <= 45 || featurePosition.Y() >= 430){
-                qDebug("feature out of frame");
                 if (settings.isFiveSecOnLoss())/*change to 5-4-3-2-1 settings bool*/{
                     five_secs_reset();
                 }
@@ -97,8 +96,10 @@ void CameraMouseController::processFrame(cv::Mat &frame)
         }
     }
     else if (settings.isFiveSecOnLoss()) {
+        if (countdown.isValid()){
         trackingModule->drawOnFrame(frame,Point(width/2,height/2));
         ImageProcessing::drawText(prevFrame, std::to_string(countdown.second()), width/2 -10,height/2 - 10);
+        }
     }
 }
 
@@ -121,7 +122,6 @@ bool CameraMouseController::isAutoDetectWorking()
 void CameraMouseController::five_secs_reset(){
     countdown = QTime(0,0,5);//resetting countdown
     trackingModule->stopTracking();
-    settings.setFiveSecOnLoss(true);
     //updating countdown every second
     QTimer::singleShot(1000,this,SLOT(slot_countdown()));
     QTimer::singleShot(2000,this,SLOT(slot_countdown()));
