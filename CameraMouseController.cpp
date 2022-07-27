@@ -110,8 +110,6 @@ void CameraMouseController::processClick(Point position)
         trackingModule->setTrackPoint(prevFrame, position);
         controlModule->restart();
     }
-    qDebug() << position.X();
-    qDebug() << position.Y();
 }
 
 bool CameraMouseController::isAutoDetectWorking()

@@ -25,9 +25,9 @@
    <property name="currentIndex">
     <number>0</number>
    </property>
-   <widget class="QWidget" name="tab">
+   <widget class="QWidget" name="">
     <attribute name="title">
-     <string>Tab 1</string>
+     <string>5-4-3-2-1</string>
     </attribute>
     <widget class="QCheckBox" name="fiveSecOnLoss">
      <property name="geometry">
